@@ -10,10 +10,10 @@ const Navbar = () => {
 
     const [menu, setMenu] = useState("shop");
     const {getTotalCartItems} = useContext(ShopContext);
-    const menuRef = useRef();
+    const mRef = useRef();
 
     const dropdown_toggle = (e) => {
-        menuRef.current.classList.toggle('nav-menu-visible');
+        mRef.current.classList.toggle('nav-menu-visible');
         e.target.classList.toggle('open');
     }
 
@@ -24,7 +24,7 @@ const Navbar = () => {
             <p>SHOPPER</p>
         </div>
         <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt="" />
-        <ul ref = {menuRef} className="nav-menu">
+        <ul ref = {mRef} className="nav-menu">
             <li onClick={() => setMenu("shop")}>
                 <Link style={{ textDecoration: "none" }} to="/">SHOP</Link> {menu === "shop" ? <hr/> : <></>}
             </li>
